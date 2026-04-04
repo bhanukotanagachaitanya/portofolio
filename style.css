@@ -577,3 +577,78 @@ footer {
     border-top: 1px solid var(--glass-border);
     margin-top: 50px;
 }
+
+/* === Advanced Features === */
+
+/* Custom Cursor */
+@media (pointer: fine) {
+    html, body, a, button, .skill-card, .project-card {
+        cursor: none !important;
+    }
+    input, textarea {
+        cursor: text !important;
+    }
+    .cursor-dot, .cursor-outline {
+        position: fixed;
+        top: 0; left: 0;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: 9999;
+        pointer-events: none;
+    }
+    .cursor-dot {
+        width: 6px;
+        height: 6px;
+        background-color: var(--accent-cyan);
+        box-shadow: 0 0 10px var(--accent-cyan);
+    }
+    .cursor-outline {
+        width: 34px;
+        height: 34px;
+        border: 2px solid rgba(181, 43, 250, 0.5); /* accent-purple */
+        transition: width 0.15s, height 0.15s, background-color 0.15s;
+    }
+}
+
+/* Typing Effect */
+.cursor-blink {
+    animation: blink 1s step-end infinite;
+    color: var(--accent-cyan);
+    font-weight: 700;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Scroll Animations */
+.scroll-hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+    will-change: opacity, transform;
+}
+.scroll-show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Advanced 3D Glare layer */
+.glare-wrapper {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    overflow: hidden;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 10;
+}
+.glare {
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.12) 0%, transparent 60%);
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
