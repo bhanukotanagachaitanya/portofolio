@@ -174,19 +174,23 @@
                     </div>
                 </div>
 
-                <form class="contact-form glass-container effect-3d">
+                <form action="https://api.web3forms.com/submit" method="POST" class="contact-form glass-container effect-3d">
+                    <!-- Replace YOUR_ACCESS_KEY_HERE with the key generated on web3forms.com -->
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                    
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" id="name" class="glossy-input" placeholder="Your Name" required>
+                        <input type="text" id="name" name="name" class="glossy-input" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" class="glossy-input" placeholder="Your Email" required>
+                        <input type="email" id="email" name="email" class="glossy-input" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
-                        <textarea id="message" rows="4" class="glossy-input" placeholder="Say hello..." required></textarea>
+                        <textarea id="message" name="message" rows="4" class="glossy-input" placeholder="Say hello..." required></textarea>
                     </div>
+                    
                     <button type="submit" class="btn btn-primary glossy-btn submit-btn">Send Message</button>
                 </form>
 
