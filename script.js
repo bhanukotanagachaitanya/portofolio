@@ -103,49 +103,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// --- Contact Form AJAX Submission --- //
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const submitBtn = contactForm.querySelector('.submit-btn');
-        const originalBtnText = submitBtn.innerHTML;
-        submitBtn.innerHTML = 'Sending...';
-        
-        const formData = new FormData(contactForm);
-        const object = {};
-        formData.forEach((value, key) => {
-            object[key] = value;
-        });
-        const json = JSON.stringify(object);
 
-        fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: json
-        })
-        .then(async (response) => {
-            let result = await response.json();
-            if (response.status == 200) {
-                alert('Thank you! Your message has been sent successfully.');
-                contactForm.reset();
-            } else {
-                alert('Failed to send: ' + (result.message || 'Unknown error'));
-            }
-        })
-        .catch(error => {
-            console.error(error);
-            alert('Something went wrong. Please try again later.');
-        })
-        .then(() => {
-            submitBtn.innerHTML = originalBtnText;
-        });
-    });
-}
 
 // === ADVANCED UX FEATURES === //
 document.addEventListener('DOMContentLoaded', () => {
