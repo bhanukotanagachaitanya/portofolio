@@ -1,16 +1,17 @@
 :root {
-    --bg-dark: #05050a;
-    --text-main: #f0f4f8;
-    --text-muted: #a0aec0;
-    --accent-cyan: #00f2ff;
-    --accent-purple: #b52bfa;
-    --glass-bg: rgba(20, 20, 30, 0.4);
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-highlight: rgba(255, 255, 255, 0.15);
-    --shadow-depth: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 242, 255, 0.1);
-    --radius-lg: 24px;
-    --radius-md: 16px;
-    --radius-sm: 8px;
+    --bg-dark: #020205;
+    --text-main: #e2e8f0;
+    --text-muted: #94a3b8;
+    --accent-cyan: #0ea5e9;
+    --accent-purple: #8b5cf6;
+    --accent-gold: #fbbf24;
+    --glass-bg: rgba(10, 15, 25, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --glass-highlight: rgba(255, 255, 255, 0.1);
+    --shadow-depth: 0 20px 40px -10px rgba(0, 0, 0, 0.9), 0 0 15px rgba(14, 165, 233, 0.05);
+    --radius-lg: 20px;
+    --radius-md: 12px;
+    --radius-sm: 6px;
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Outfit', sans-serif;
     --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -37,8 +38,8 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* Planetary Background */
-.planetary-bg {
+/* Computer Engineering Background */
+.tech-bg {
     position: fixed;
     top: 0;
     left: 0;
@@ -46,85 +47,64 @@ body {
     height: 100vh;
     z-index: -1;
     overflow: hidden;
-    pointer-events: none;
-    background: radial-gradient(circle at bottom right, #0a0a1a, #05050a);
+    background-color: var(--bg-dark);
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.03) 0%, transparent 70%),
+        linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+    background-size: 100% 100%, 50px 50px, 50px 50px;
 }
 
-.planet {
+/* Circuit Traces */
+.circuit-overlay {
     position: absolute;
-    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 L40 10 L40 40 L70 40 L70 70 L90 70' fill='none' stroke='%230ea5e9' stroke-width='0.5'/%3E%3Ccircle cx='10' cy='10' r='1' fill='%230ea5e9'/%3E%3Ccircle cx='90' cy='70' r='1' fill='%230ea5e9'/%3E%3Cpath d='M10 90 L10 60 L40 60 L40 30 L70 30' fill='none' stroke='%238b5cf6' stroke-width='0.5'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
 }
 
-.planet-1 {
-    width: 600px;
-    height: 600px;
-    top: -150px;
-    right: -200px;
-    background: radial-gradient(circle at 30% 30%, var(--accent-purple), #2a0845);
-    box-shadow: 0 0 120px rgba(181, 43, 250, 0.4), inset -20px -20px 40px rgba(0,0,0,0.8);
-    animation: float-planet 20s ease-in-out infinite alternate;
-}
-
-.planet-2 {
-    width: 300px;
-    height: 300px;
-    bottom: -50px;
-    left: -100px;
-    background: radial-gradient(circle at 30% 30%, var(--accent-cyan), #004d66);
-    box-shadow: 0 0 100px rgba(0, 242, 255, 0.3), inset -10px -10px 30px rgba(0,0,0,0.8);
-    animation: float-planet 25s ease-in-out infinite alternate-reverse;
-}
-
-.planet-ring {
+/* Glowing Nodes */
+.node {
     position: absolute;
-    width: 900px;
-    height: 900px;
+    width: 4px;
+    height: 4px;
+    background: var(--accent-cyan);
     border-radius: 50%;
-    top: -300px;
-    right: -350px;
-    border: 2px solid rgba(255,255,255,0.05);
-    transform: rotateX(75deg) rotateY(20deg);
-    box-shadow: 0 0 30px rgba(181, 43, 250, 0.1), inset 0 0 30px rgba(181, 43, 250, 0.1);
-    animation: rotate-ring 40s linear infinite;
+    box-shadow: 0 0 15px var(--accent-cyan);
+    animation: pulse-node 4s infinite alternate;
 }
 
-.stars, .stars-2 {
+@keyframes pulse-node {
+    0% { opacity: 0.2; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Data Flow Particles */
+.data-flow {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: 
-        radial-gradient(1px 1px at 10% 20%, #fff, transparent),
-        radial-gradient(2px 2px at 30% 40%, rgba(255,255,255,0.8), transparent),
-        radial-gradient(1px 1px at 50% 60%, #fff, transparent),
-        radial-gradient(2px 2px at 70% 80%, rgba(0,242,255,0.8), transparent),
-        radial-gradient(1px 1px at 90% 10%, #fff, transparent),
-        radial-gradient(2px 2px at 20% 90%, rgba(181,43,250,0.8), transparent),
-        radial-gradient(1px 1px at 80% 30%, #fff, transparent),
-        radial-gradient(2px 2px at 60% 10%, rgba(255,255,255,0.5), transparent),
-        radial-gradient(1px 1px at 40% 90%, #fff, transparent);
-    background-size: 200px 200px;
-    animation: drift-stars 100s linear infinite;
+    pointer-events: none;
 }
 
-.stars-2 {
-    background-size: 300px 300px;
-    animation: drift-stars 150s linear infinite reverse;
-    opacity: 0.5;
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background: linear-gradient(to bottom, var(--accent-cyan), transparent);
+    opacity: 0;
+    animation: flow 10s linear infinite;
 }
 
-@keyframes float-planet {
-    0% { transform: translateY(0) scale(1); }
-    100% { transform: translateY(40px) scale(1.05); }
-}
-
-@keyframes rotate-ring {
-    0% { transform: rotateX(75deg) rotateY(20deg) rotateZ(0deg); }
-    100% { transform: rotateX(75deg) rotateY(20deg) rotateZ(360deg); }
-}
-
-@keyframes drift-stars {
-    0% { background-position: 0 0; }
-    100% { background-position: 1000px 1000px; }
+@keyframes flow {
+    0% { transform: translateY(-100px); opacity: 0; }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.5; }
+    100% { transform: translateY(110vh); opacity: 0; }
 }
 
 /* Typography */
@@ -501,17 +481,41 @@ h1, h2, h3, h4 {
     backdrop-filter: blur(12px);
     display: flex;
     flex-direction: column;
+    min-height: 380px;
 }
 
-.project-image-placeholder {
-    height: 200px;
-    background: linear-gradient(135deg, rgba(20,20,30,0.8), rgba(40,40,60,0.8));
+.project-icon-top {
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(139, 92, 246, 0.1));
     border-bottom: 1px solid var(--glass-border);
-    position: relative;
 }
+
+.repo-icon {
+    width: 50px;
+    height: 50px;
+    color: var(--accent-cyan);
+    filter: drop-shadow(0 0 10px var(--accent-cyan));
+}
+
+.repo-badges {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.badge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: var(--accent-cyan);
+    font-weight: 600;
+}
+
 
 .project-image-placeholder::after {
     content: '';

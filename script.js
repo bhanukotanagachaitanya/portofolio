@@ -24,6 +24,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // === ADVANCED UX FEATURES === //
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- 0. Background Element Generation --- //
+    const dataFlow = document.querySelector('.data-flow');
+    const nodesContainer = document.querySelector('.nodes-container');
+
+    if (dataFlow) {
+        for (let i = 0; i < 20; i++) {
+            const p = document.createElement('div');
+            p.classList.add('particle');
+            p.style.left = `${Math.random() * 100}%`;
+            p.style.animationDelay = `${Math.random() * 8}s`;
+            p.style.animationDuration = `${6 + Math.random() * 10}s`;
+            dataFlow.appendChild(p);
+        }
+    }
+
+    if (nodesContainer) {
+        for (let i = 0; i < 15; i++) {
+            const n = document.createElement('div');
+            n.classList.add('node');
+            n.style.left = `${Math.random() * 100}%`;
+            n.style.top = `${Math.random() * 100}%`;
+            n.style.animationDelay = `${Math.random() * 5}s`;
+            nodesContainer.appendChild(n);
+        }
+    }
+
     // --- 1. Custom Cursor --- //
     const cursorDot = document.querySelector('.cursor-dot');
     const cursorOutline = document.querySelector('.cursor-outline');
@@ -43,20 +69,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }, { duration: 500, fill: "forwards" });
         });
 
-        // Add hover effects
-        const hoverElements = document.querySelectorAll('a, button, .skill-card, .project-card');
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursorOutline.style.width = '60px';
-                cursorOutline.style.height = '60px';
-                cursorOutline.style.backgroundColor = 'rgba(0, 242, 255, 0.1)';
-                cursorOutline.style.borderColor = 'var(--accent-cyan)';
+        // --- 1.2 Magnetic Button Effect --- //
+        const magneticElements = document.querySelectorAll('.btn, .social-icon, .glass-nav a');
+        magneticElements.forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
             });
             el.addEventListener('mouseleave', () => {
-                cursorOutline.style.width = '34px';
-                cursorOutline.style.height = '34px';
-                cursorOutline.style.backgroundColor = 'transparent';
-                cursorOutline.style.borderColor = 'rgba(181, 43, 250, 0.5)';
+                el.style.transform = `translate(0, 0)`;
             });
         });
     }
