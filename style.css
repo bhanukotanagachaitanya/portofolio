@@ -257,6 +257,95 @@ h1, h2, h3, h4 {
     text-shadow: 0 0 10px rgba(0,242,255,0.5);
 }
 
+/* Resume & Timeline Section */
+.resume-grid {
+    display: grid;
+    gap: 3rem;
+    padding: 3.5rem;
+    margin-top: 2rem;
+    border: 1px solid var(--glass-border);
+}
+
+@media (min-width: 992px) {
+    .resume-grid {
+        grid-template-columns: 1.2fr 1fr;
+    }
+}
+
+.timeline-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timeline {
+    position: relative;
+    border-left: 2px solid var(--glass-border);
+    margin-left: 10px;
+    padding-left: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2.8rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: var(--accent-cyan);
+    border-radius: 50%;
+    left: -38px;
+    top: 5px;
+    box-shadow: 0 0 15px var(--accent-cyan);
+    border: 2px solid var(--bg-dark);
+}
+
+.timeline-content h4 {
+    font-size: 1.25rem;
+    color: var(--text-main);
+    margin-bottom: 0.4rem;
+}
+
+.timeline-place {
+    color: var(--accent-purple);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.timeline-desc {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.resume-cta {
+    margin-top: 3.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--glass-border);
+    text-align: center;
+}
+
+.resume-cta p {
+    margin-bottom: 1.8rem;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
 @media (max-width: 768px) {
     .glass-nav {
         top: auto;

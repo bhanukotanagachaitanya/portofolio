@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Bhanu Kota Naga Chaitanya Viswanadham</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #475569;
+            --accent: #0ea5e9;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { padding: 0 !important; margin: 0 !important; font-size: 11pt !important; }
+            .content { border: none !important; box-shadow: none !important; max-width: 100% !important; }
+            a { text-decoration: none !important; color: black !important; }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8fafc;
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .resume-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            color: var(--secondary);
+            font-size: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        section {
+            margin-bottom: 25px;
+        }
+
+        section h2 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-left: 4px solid var(--accent);
+            padding-left: 10px;
+            margin-bottom: 15px;
+            background: #f1f5f9;
+            padding: 8px 10px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .item {
+            margin-bottom: 15px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .item-subheader {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .item-date {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .item-desc {
+            margin-top: 5px;
+            color: var(--secondary);
+            font-size: 0.95rem;
+        }
+
+        .skills-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skills-list li {
+            background: #f1f5f9;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .button-bar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        @media (max-width: 600px) {
+            .resume-container { padding: 25px; }
+            .item-header { flex-direction: column; }
+            .item-date { margin-top: 2px; }
+            .info-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="button-bar no-print">
+        <a href="index.html" class="btn btn-outline">Back to Website</a>
+        <button onclick="window.print()" class="btn">Print / Save as PDF</button>
+    </div>
+
+    <div class="resume-container">
+        <header>
+            <h1>Bhanu Kota Naga Chaitanya Viswanadham</h1>
+            <p>Computer Science Engineer | Full Stack & ML Aspiring Professional</p>
+            <div class="contact-info">
+                <span>Bhimavaram, Andhra Pradesh</span>
+                <a href="mailto:bhanukotanagachaitanya@gmail.com">bhanukotanagachaitanya@gmail.com</a>
+                <a href="https://github.com/bhanukotanagachaitanya">GitHub</a>
+                <a href="https://linkedin.com/in/bhanu-kota-naga-chaitanya-viswanadham/">LinkedIn</a>
+            </div>
+        </header>
+
+        <section>
+            <h2>Profile Summary</h2>
+            <p class="item-desc">
+                Dedicated B-Tech Computer Science student with a solid background in Web Development and Machine Learning. 
+                Proven track record of technical curiosity through hands-on internships and independent project development. 
+                Passionate about bridging the gap between high-performance hardware architecture and intuitive web-based solutions.
+            </p>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <div class="item">
+                <div class="item-header">
+                    <span>Sri Vasavi Engineering College</span>
+                    <span class="item-date">2025 - Present</span>
+                </div>
+                <div class="item-subheader">B.Tech - Computer Science Engineering</div>
+                <div class="item-desc">Tadepalligudem, AP — Currently in 2nd Year</div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span>SMT.B. Seetha Polytechnic</span>
+                    <span class="item-date">2022 - 2025</span>
+                </div>
+                <div class="item-subheader">Diploma in Engineering</div>
+                <div class="item-desc">Bhimavaram, AP — Completed with 78.5%</div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span>Z.P.H. School</span>
+                    <span class="item-date">2022</span>
+                </div>
+                <div class="item-subheader">SSC (10th Standard)</div>
+                <div class="item-desc">Chinamiram, AP — Completed with 73.5%</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Professional Experience</h2>
+            <div class="item">
+                <div class="item-header">
+                    <span>Sri Devi Techno Bite</span>
+                    <span class="item-date">Internship</span>
+                </div>
+                <div class="item-subheader">Full Stack Developer & ML Intern</div>
+                <div class="item-desc">Collaborated with Manogna Software Solutions. Focused on Full Stack development using Python and Machine Learning implementations.</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <div class="item">
+                <div class="item-header">
+                    <span>Fake News Detection Using ML</span>
+                </div>
+                <div class="item-desc">Developed a machine learning-based sample application to identify and flag misinformation using Python and ML algorithms during the internship program.</div>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <span>Professional Portfolio Website</span>
+                </div>
+                <div class="item-desc">Engineered a high-performance interactive portfolio using modern CSS3 (Glassmorphism), 3D Interactive backgrounds, and responsive UI/UX principles.</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Technical Skills</h2>
+            <div class="item">
+                <div class="item-subheader">Programming & Web</div>
+                <ul class="skills-list" style="margin-top: 8px;">
+                    <li>Python</li><li>Machine Learning</li><li>Java</li><li>C++</li><li>HTML5</li><li>CSS3</li><li>JavaScript</li>
+                </ul>
+            </div>
+            <div class="item">
+                <div class="item-subheader">Hardware & Engineering</div>
+                <ul class="skills-list" style="margin-top: 8px;">
+                    <li>Computer Architecture</li><li>Embedded Systems</li><li>Digital Logic</li><li>VLSI Design</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
