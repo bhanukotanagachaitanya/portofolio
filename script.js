@@ -245,4 +245,32 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => { el.style.transition = 'none'; }, 500);
         });
     });
+
+    // --- 5. Mobile Gyroscope 3D Effect --- //
+    // Enable 3D tilt tracking for mobile devices using device orientation (gyroscope)
+    if (window.DeviceOrientationEvent && window.matchMedia("(pointer: coarse)").matches) {
+        window.addEventListener('deviceorientation', (e) => {
+            if (e.beta === null || e.gamma === null) return;
+            
+            // Assume user holds phone at around 40 degrees naturally
+            let centeredBeta = e.beta - 40;
+            
+            // Clamp values so it doesn't get crazy when laid totally flat or upside down
+            let beta = Math.max(-25, Math.min(25, centeredBeta));
+            let gamma = Math.max(-25, Math.min(25, e.gamma)); 
+
+            // Scale the rotation down slightly for a smooth, premium feel
+            const rotateX = beta * -0.6;
+            const rotateY = gamma * 0.6;
+
+            tiltElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                // Performance safeguard: only tip cards currently visible on screen
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                   el.style.transition = 'transform 0.2s ease-out';
+                   el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1, 1, 1)`;
+                }
+            });
+        });
+    }
 });
