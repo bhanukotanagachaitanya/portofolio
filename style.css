@@ -516,6 +516,30 @@ h1, h2, h3, h4 {
     font-weight: 600;
 }
 
+.placeholder-card {
+    opacity: 0.8;
+    filter: grayscale(0.5);
+    border-style: dashed;
+}
+
+.placeholder-card:hover {
+    filter: grayscale(0);
+    opacity: 1;
+    border-style: solid;
+}
+
+.muted-icon {
+    opacity: 0.4;
+}
+
+.disabled-btn {
+    pointer-events: none;
+    opacity: 0.6;
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--glass-border);
+    color: var(--text-muted);
+}
+
 
 .project-image-placeholder::after {
     content: '';
